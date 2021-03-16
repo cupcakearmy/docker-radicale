@@ -1,0 +1,11 @@
+[server]
+hosts = 0.0.0.0:5232
+ssl = False
+
+[auth]
+type = htpasswd
+htpasswd_filename = /data/users
+htpasswd_encryption = bcrypt
+
+[storage]
+filesystem_folder = /data/data
