@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -f "$USER_FILE" ]; then
   echo "No auth file found. Generating";

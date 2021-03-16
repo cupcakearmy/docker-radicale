@@ -1,9 +1,17 @@
-FROM python:3.9
+FROM python:3.9-alpine as builder
 
-RUN apt update
-RUN apt install -y apache2-utils
+WORKDIR /app
 
-RUN python3 -m pip install --upgrade radicale[bcrypt]
+RUN apk add --no-cache alpine-sdk libffi-dev
+RUN pip install --user radicale[bcrypt] 
+
+
+FROM python:3.9-alpine
+
+RUN apk add --no-cache apache2-utils
+
+COPY --from=builder /root/.local /root/.local
+ENV PATH=/root/.local:$PATH
 
 WORKDIR /app
 
