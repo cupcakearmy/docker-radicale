@@ -19,7 +19,8 @@ version: '3.7'
 
 services:
   app:
-    image: cupcakearmy/radicale
+    image: cupcakearmy/radicale:1
+    restart: unless-stopped
     env_file: .env
     volumes:
       - ./data:/data
