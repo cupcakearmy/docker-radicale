@@ -3,7 +3,7 @@ FROM python:3.9-alpine as builder
 WORKDIR /app
 
 RUN apk add --no-cache alpine-sdk libffi-dev
-RUN pip install --user radicale[bcrypt] 
+RUN pip install --user radicale[bcrypt]~=3.0
 
 
 FROM python:3.9-alpine
