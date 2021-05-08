@@ -22,4 +22,6 @@ ENV USER_FILE=/data/users
 
 VOLUME [ "/data" ]
 
+EXPOSE 5232
+
 CMD [ "/app/entrypoint.sh" ]
