@@ -1,12 +1,14 @@
-FROM python:3.9-alpine as builder
+FROM python:3-alpine as builder
 
 WORKDIR /app
 
+ARG RADICALE_VERSION=3.1.4
+
 RUN apk add --no-cache alpine-sdk libffi-dev
-RUN pip install --user radicale[bcrypt]~=3.0
+RUN pip install --user radicale[bcrypt]==$RADICALE_VERSION
 
 
-FROM python:3.9-alpine
+FROM python:3-alpine
 
 RUN apk add --no-cache apache2-utils
 
