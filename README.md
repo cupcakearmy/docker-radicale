@@ -2,8 +2,9 @@
 
 This is a small docker image for [Radicale](https://github.com/Kozea/Radicale) and easy deployment. Bcrypt authentication inclusive.
 
-![docker pulls](https://badgen.net/docker/pulls/cupcakearmy/radicale)
-![docker size](https://badgen.net/docker/size/cupcakearmy/radicale)
+![Docker Pulls](https://img.shields.io/docker/pulls/cupcakearmy/radicale?style=flat-square)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/cupcakearmy/radicale/latest?style=flat-square)
+![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/cupcakearmy/radicale/latest?style=flat-square)
 
 ## Installation
 
