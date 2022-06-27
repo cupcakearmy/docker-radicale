@@ -7,15 +7,15 @@ This is a small docker image for [Radicale](https://github.com/Kozea/Radicale) a
 
 ## Installation
 
-```
+```sh
 # .env
 USER=foo
 PASSWORD=secret
 ```
 
-```yml
+```yaml
 # docker-compose.yml
-version: '3.7'
+version: '3.8'
 
 services:
   app:
@@ -42,27 +42,27 @@ The same setup works for Calendar and on iOS.
 
 An example for traefik (v1) can found below.
 
-```yml
-version: '3.7'
+```yaml
+version: '3.8'
 
 networks:
-  traefik:
+  proxy:
     external: true
 
 services:
   app:
-    image: cupcakearmy/radicale
+    image: cupcakearmy/radicale:1
+    restart: unless-stopped
     env_file: .env
     volumes:
       - ./data:/data
     networks:
-      - traefik
+      - proxy
     labels:
       - traefik.enable=true
-      - traefik.backend=radicale
-      - traefik.frontend.rule=Host:radicale.example.org
-      - traefik.docker.network=traefik
-      - traefik.port=5232
+      - traefik.http.routers.radicale.rule=Host(`radicale.example.org`)
+      - traefik.http.routers.radicale.entrypoints=secure
+      - traefik.http.routers.radicale.tls.certresolver=le
 ```
 
 ## Customize
