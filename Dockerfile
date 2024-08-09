@@ -2,7 +2,7 @@ FROM python:3-alpine as builder
 
 WORKDIR /app
 
-ARG RADICALE_VERSION=3.1.8
+ARG RADICALE_VERSION=3.2.2
 
 RUN apk add --no-cache alpine-sdk libffi-dev
 RUN pip install --user radicale[bcrypt]==$RADICALE_VERSION

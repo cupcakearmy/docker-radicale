@@ -1,7 +1,3 @@
-# Only for development, see README.md for production
-
-version: '3.8'
-
 services:
   app:
     build: .
